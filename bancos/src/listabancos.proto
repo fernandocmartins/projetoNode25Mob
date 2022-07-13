@@ -1,0 +1,24 @@
+syntax = "proto3";
+service ManageBank {
+    rpc banksList(Empty) returns (ListBank) {}
+    rpc addBank(Bank) returns (Bank) {}
+    rpc updateBank(Bank) returns (Bank) {}
+}
+
+message ClienteKey {
+    string apikey = 1;
+}
+
+message Empty {}
+
+message ListBank {
+    repeated Bank bancos = 1;
+}
+
+message Bank {
+    string nome_banco = 1;
+    string tipo_conta = 2;
+    string nome_titular = 3;
+    string limite_cartao = 4; 
+    string apikey = 5; 
+}
